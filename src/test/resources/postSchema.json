@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "http://example.com/example.json",
+  "type": "object",
+  "required": [
+    "id",
+    "category",
+    "name",
+    "photoUrls",
+    "tags",
+    "status"
+  ],
+  "properties": {
+    "id": {
+      "id": "#/properties/id",
+      "type": "integer"
+    },
+    "category": {
+      "id": "#/properties/category",
+      "type": "object",
+      "required": [
+        "id",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "id": "#/properties/category/properties/id",
+          "type": "integer"
+        },
+        "name": {
+          "id": "#/properties/category/properties/name",
+          "type": "string"
+        }
+      }
+    },
+    "name": {
+      "id": "#/properties/name",
+      "type": "string"
+    },
+    "photoUrls": {
+      "id": "#/properties/photoUrls",
+      "type": "array",
+      "items": {
+        "id": "#/properties/photoUrls/items",
+        "anyOf": [
+          {
+            "id": "#/properties/photoUrls/items/anyOf/0",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "tags": {
+      "id": "#/properties/tags",
+      "type": "array",
+      "items": {
+        "id": "#/properties/tags/items",
+        "anyOf": [
+          {
+            "id": "#/properties/tags/items/anyOf/0",
+            "type": "object",
+            "required": [
+              "id",
+              "name"
+            ],
+            "properties": {
+              "id": {
+                "id": "#/properties/tags/items/anyOf/0/properties/id",
+                "type": "integer"
+              },
+              "name": {
+                "id": "#/properties/tags/items/anyOf/0/properties/name",
+                "type": "string"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "status": {
+      "id": "#/properties/status",
+      "type": "string"
+    }
+  }
+}
